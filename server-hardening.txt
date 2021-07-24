@@ -1,0 +1,108 @@
+Hardening the server
+
+Linode
+
+UBunto 20.04
+
+copy ip address
+connect with ssh root@ip
+password
+
+keep linode up to date
+regularly install patches
+
+apt update
+// gets packages that need updating
+
+apt dist-upgrade // upgrades all packages on server
+(specific to debian and ubuntu - centos is different)
+
+reboot linode
+dashboard - click on reboot on dropdown
+
+reconnect with ssh
+
+// unattended upgrades
+- enable automatic update
+
+debian + ubuntu
+
+apt update
+apt install  unattended-upgrades
+dpkg-reconfigure --priority=low unattended-upgrades
+
+-------------------
+
+//change from root user -
+useradd -m -s /bin/bash username-any && passwd opoiufds_iodsfuiuew
+
+ls /home
+/etc/passwd
+
+which sudo // check sudo is installed
+
+apt intstall sudo
+
+// make sure user can access
+
+sudo
+// scroll down to 
+%admin ALL=(ALL) ALL
+&sudo  ALL=(ALL:ALL) ALL
+
+usermod -aG (name of group eg sudo, admin, wheel) username
+groups username
+// should see username : username sudo
+
+su - username_here
+
+// test sudo apt update (to check sudo works)
+
+exit
+
+// create public private key pair to access
+
+ssh-keygen
+(/home/user/.ssh/id_rsa) - change name if you don't want to overwrite
+enter passphrase:
+
+ls - l ~/.ssh
+
+id_rsa
+id_rsa.pub (copy this file)
+
+//copy key to linode
+ssh-copy-id -i ~/.ssh/id_rsa.pub username@ipaddress
+
+-------------------------
+
+// lockdown ssh -
+sudo nano /etc/ssh/sshd_config
+// scroll down to PermitRootLogin yes (change to no)
+// add new option
+AllowUsers username_here other_user another_user
+
+sudo systemctl restart sshd
+
+// check
+ssh ipaddress (if locked out go into lish console)
+
+sudo ss - atpu // view ports listening to outside connections
+
+sudo apt remove (anything that shouldn't be here)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
