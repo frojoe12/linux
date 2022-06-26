@@ -32,5 +32,12 @@ Search previous command
   "type part of a previous command"
   ctrl+r : goes back through history
   
+Break out of commands
+  ctrl+c
+  
+Command history
+  history
+  !101 : eg 101 = the number on the previous history search to rerun the command
+  
   
   
