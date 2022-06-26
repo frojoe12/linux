@@ -4,11 +4,20 @@ FILE OWNERSHIP
 
 GREP
   cat filename | grep "text in file"
-  grep "text in file" filename : (use . for current directory)
-  grep -i "text" : case insensitive
-  grep -r "text /dir : recursive search
+  grep "text in file" filename (use ./* for directory)
+  grep -i "text" filename : case insensitive
+  grep -r "text /dir : recursive search (use . for current directory)
   grep -n "text" : line number
   grep -c "text" : count of occurence
+  grep -w "text" filename : whole occurence of word
+  grep -B 4 "text" filename : see lines behind the match
+  
+  grep -win -B 4 "text" filename
+  grep -win -A 4 "text" filename : see after (use C for both before and after)  
+  
+Grep Regex
+  grep ".....-......" ./* : find phone number
+  grep -P "\d{4}-\d{6}" ./* : linux only pearl regex
 
 Navigating Directories
   cd /etc
@@ -38,6 +47,22 @@ Break out of commands
 Command history
   history
   !101 : eg 101 = the number on the previous history search to rerun the command
+  history | grep "git commit"
+  history | grep "git commit" | grep "dotfiles"
   
+Chain commands
+  use ; or && character between commands : && prevents running second command in case of error with first command
+ 
+Tail
+  tail -2 "filename" : last two lines of file
+  tail -f "filename" : live view of content
+
+Cat/truncate
+  cat "filename"
+  truncate -s 0 "filename" : makes filesize 0
+  
+Column
+  mount : file systems
+  mount | column -t : show in columns
   
   
