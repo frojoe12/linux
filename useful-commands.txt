@@ -14,6 +14,23 @@ Navigating Directories
   cd /etc
   cd - : previous directory
   cd ~ : home
+  pushd : remembers directory
+  popd : returns to directory 
   
 Clear Screen  
-  crtl + l : clear screen
+  ctrl + l : clear screen
+  reset : reset shell (removes history above cursor)
+  cls / clear : windows vs linux clear
+  
+Run previous command
+eg
+  apt update : without sudo
+  sudo !! : runs previous command
+
+Search previous command
+  ctrl+r
+  "type part of a previous command"
+  ctrl+r : goes back through history
+  
+  
+  
