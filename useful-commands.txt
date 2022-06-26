@@ -1,7 +1,19 @@
+FILE OWNERSHIP
+  CHOWN www-data:www-data filename 
+  CHOWN -r root:root /directory
+
 GREP
-cat filename | grep "text in file"
-grep "text in file" filename : (use . for current directory)
-grep -i "text" : case insensitive
-grep -r "text /dir : recursive search
-grep -n "text" : line number
-grep -c "text" : count of occurence
+  cat filename | grep "text in file"
+  grep "text in file" filename : (use . for current directory)
+  grep -i "text" : case insensitive
+  grep -r "text /dir : recursive search
+  grep -n "text" : line number
+  grep -c "text" : count of occurence
+
+Navigating Directories
+  cd /etc
+  cd - : previous directory
+  cd ~ : home
+  
+Clear Screen  
+  crtl + l : clear screen
